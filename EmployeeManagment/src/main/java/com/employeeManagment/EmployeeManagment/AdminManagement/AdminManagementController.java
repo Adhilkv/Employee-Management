@@ -70,12 +70,12 @@ public class AdminManagementController {
 	}
 
 	@PostMapping("/admin/update/password")
-	public ResponseEntity<ResponseMessage> changePassword(@RequestBody User User) {
+	public ResponseEntity<ResponseMessage> changePassword(@RequestBody User user) {
 		message = "";
 		try {
 			
 			message = "Password Update Success";
-			adminService.password(User);
+			adminService.password(user);
 			
 			return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
 			
@@ -88,11 +88,11 @@ public class AdminManagementController {
 	}
 
 	@PostMapping("/admin/update")
-	public ResponseEntity<ResponseMessage> changeDetails(@RequestBody User User) {
+	public ResponseEntity<ResponseMessage> changeDetails(@RequestBody User user) {
 		message = "";
 		try {
 			message = "Update Success";
-			adminService.update(User);
+			adminService.update(user);
 			return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
 
 		} catch (Exception ex) {

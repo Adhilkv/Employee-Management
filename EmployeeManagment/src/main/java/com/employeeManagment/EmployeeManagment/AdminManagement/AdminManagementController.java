@@ -122,10 +122,10 @@ public class AdminManagementController {
 		}
 	}
 
-	@GetMapping("/admin/login/{username}")
-	public ResponseEntity<User> getData(@PathVariable String username,Principal principal) {
+	@GetMapping("/admin/login/{username}") 
+	public ResponseEntity<User> getData(@PathVariable String username) {
 		try {
-			User userLogin = adminService.login(principal.getName());
+			User userLogin = adminService.login(username);
 			return ResponseEntity.status(HttpStatus.OK).body(userLogin);
 		} catch (Exception ex) {
 			return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new User());
